@@ -1,37 +1,192 @@
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #808080;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: center;
+    background-color: #696969;
+    padding: 10px 0;
 }
 
-.sidebar {
-    width: 250px;
-    background-color: rgb(212, 212, 212);
-    padding: 15px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed; 
-    height: 100%; 
-    overflow-y: auto; 
+nav ul li {
+    margin: 0 15px;
 }
 
-.sidebar h2 {
-    font-size: 1.5em;
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    background-color: #a9a9a9;
+    color: #000;
+}
+
+main {
+    padding: 20px;
+}
+
+
+
+
+/* Hero section */
+.hero {
+    background-color: #d3d3d3;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.hero button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #555;
+}
+
+
+
+
+.about {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #efefef;
+    border-radius: 5px;
+}
+
+.about h2 {
     margin-bottom: 10px;
 }
 
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+/* eventi dio */
+.featured-events {
+    margin-top: 40px;
 }
 
-.sidebar ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid #ccc; 
+.featured-events h2 {
+    margin-bottom: 20px;
 }
 
-.main-content {
-    margin-left: 270px; 
+.featured-events h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.featured-events p {
+    margin: 10px 0;
+}
+
+.featured-events a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.featured-events a:hover {
+    text-decoration: underline;
+}
+
+
+/* Testamentii  Dio */
+.testimonials {
+    margin-top: 40px;
     padding: 20px;
+    background-color: #e8e8e8;
+    border-radius: 5px;
+}
+
+.testimonials h2 {
+    margin-bottom: 10px;
+}
+
+
+
+/* Newsletters Dio */
+.newsletter {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #cfcfcf;
+    border-radius: 5px;
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+}
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.newsletter label,
+.newsletter input {
+    margin-bottom: 10px;
+}
+
+.newsletter input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #555;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #808080;
+    color: white;
+    text-align: center;
 }
