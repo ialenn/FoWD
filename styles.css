@@ -1,192 +1,342 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-header {
-    background-color: #808080;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-nav ul {
-    list-style-type: none;
+/* This is for CSS reset to for consistent styling across different browsers */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #696969;
-    padding: 10px 0;
+    box-sizing: border-box;
 }
 
-nav ul li {
-    margin: 0 15px;
+/* Navbar */
+body {
+    font-family: Arial, sans-serif;  
 }
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 4px;
-}
-
-nav ul li a:hover {
-    background-color: #a9a9a9;
-    color: #000;
-}
-
-main {
-    padding: 20px;
-}
-
-
-
-
-/* Hero section */
-.hero {
-    background-color: #d3d3d3;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.hero h2 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-.hero button {
-    padding: 10px 20px;
+.navbar {
     background-color: #333;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
-
-.hero button:hover {
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+.nav-links a:hover {
     background-color: #555;
-}
-
-
-
-
-.about {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #efefef;
     border-radius: 5px;
 }
 
-.about h2 {
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .event-cards-container {
+        flex-direction: column;
+        gap: 30px;
+        margin: 0 auto;
+    }
+    .registration-form-section {
+        padding: 15px;
+        max-width: 90%;
+    }
+}
+/* Navbar */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; 
+        flex-direction: column;
+        text-align: center;
+        background-color: #333;
+        padding: 10px;
+        width: 100%;
+    }
+    .navbar .nav-links.active {
+        display: flex;
+    }
+    .event-cards-container {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .event-card, .tickets-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .registration-form-section, .ticketssec, .eventssec {
+        padding: 10px;
+    }
+    main {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-large, .header-medium {
+        font-size: 2rem;
+    }
+    .header-small {
+        font-size: 1.2rem;
+    }
+    .btn-fancy {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    audio, video {
+        max-width: 100%;
+    }
+}
+
+
+/* Main Section */
+main {
+    background: url('What-to-see-in-Sarajevo.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 50px;
+    min-height: 150vh;
+    text-align: center;
+}
+/* Header Styling */
+.header-large {
+    font-size: 3rem; 
+    font-weight: 700; 
+    margin-bottom: 20px;
+    color: #2c3e50; 
+    text-align: center; 
+}
+.header-medium {
+    font-size: 2rem;  
+    font-weight: 600; 
+    margin-bottom: 15px;
+}
+.header-small {
+    font-size: 1.5rem;  
+    font-weight: 400; 
     margin-bottom: 10px;
 }
+/* Spacing Between Headings */
+.header-section {
+    margin-top: 100px;
+}
 
-/* eventi dio */
+
+/* Container for Event Cards */
+.event-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* karte u redu na events page*/
+    gap: 20px; /* Space between cards */
+    justify-content: center; 
+}
+/* Featured Events Section */
 .featured-events {
-    margin-top: 40px;
+    padding: 20px;
+    background-color: #c9c4ac;
+    border-radius: 8px;
+}
+.event-card {
+    background-color: rgb(202, 199, 188);
+    border: 5px solid #694503;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 0 auto; /* Centriranje boxa */
+    text-align: left;
+    transition: transform 0.3s;
+    
+}
+.event-card:hover {
+    transform: scale(1.05); /*iskakanje kada se hoveruje*/
+}
+.event-image {
+    width: 290px;
+    height: 150px; /* Adjust dimensions as needed */
+    object-fit: cover; /* Ensures images maintain aspect ratio and are scaled within their container */
 }
 
-.featured-events h2 {
-    margin-bottom: 20px;
-}
 
-.featured-events h3 {
+/* why chosose us */
+.benefits-list {
     margin-top: 20px;
-    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+.benefits-list li {
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #ddcdcd;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+.benefits-list li:hover {
+    background-color: #bfdcf3;
 }
 
-.featured-events p {
-    margin: 10px 0;
+
+/* FancyButton  */
+.btn-fancy {
+    padding: 12px 25px;
+    background-color: #ff5733; 
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-fancy:hover {
+    transform: translateY(-2px);
 }
 
-.featured-events a {
+
+/* Footer */
+footer {
+    background-color: #333; 
+    color: white; 
+    padding: 4px;
+    text-align: center; 
+    font-size: 0.7rem; 
+    border-top: 5px solid #694503;
+}
+footer a {
+    color: #ff5733; 
     text-decoration: none;
-    color: #333;
     font-weight: bold;
 }
-
-.featured-events a:hover {
+footer a:hover {
+    color: #e04d2d; 
     text-decoration: underline;
 }
 
 
-/* Testamentii  Dio */
-.testimonials {
-    margin-top: 40px;
+/* EVENTS PAGE */
+.three-per-row {
+    margin: 100px;
+    display: inline-block;   
+}
+
+
+/* Registration Form Styling */
+.registration-form-section {
+    margin: 20px auto;
     padding: 20px;
-    background-color: #e8e8e8;
-    border-radius: 5px;
+    max-width: 600px;
+    background-color: #e2bdbd;
+    border-radius: 8px;
 }
-
-.testimonials h2 {
-    margin-bottom: 10px;
-}
-
-
-
-/* Newsletters Dio */
-.newsletter {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #cfcfcf;
-    border-radius: 5px;
-}
-
-.newsletter h2 {
-    margin-bottom: 10px;
-}
-
-.newsletter form {
+form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
-
-.newsletter label,
-.newsletter input {
-    margin-bottom: 10px;
+form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
 }
-
-.newsletter input {
+/*this is for all input fields in the form*/
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select,
+form textarea,
+form input[type="file"] {
     padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 300px;
+    border-radius: 4px;
+    font-size: 1rem;
 }
-
-.newsletter button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+form button[type="submit"] {
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
+    background-color: #ff5733;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
-.newsletter button:hover {
-    background-color: #555;
+form button[type="submit"]:hover {
+    background-color: #e04d2d;
 }
 
-footer {
-    margin-top: 40px;
-    padding: 10px;
-    background-color: #808080;
-    color: white;
-    text-align: center;
+/* Image Sizing classes for tickets Page */
+.small-image {
+    width: 150px;
+    height: auto;
+}
+.medium-image {
+    width: 250px;
+    height: auto;
+}
+.large-image {
+    width: 350px;
+    height: auto;
+}
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    color: #333; 
+}
+.h22{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.p11{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boja td{
+    background-color: #e2bdbd;
+    color:red;
+}
+
+/* Burger Menu Styling */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Show burger menu on smaller screens */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
 }

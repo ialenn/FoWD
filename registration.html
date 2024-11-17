@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarajevo City Events - Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="home.html" class="logo">Sarajevo Events</a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="tickets.html">Tickets</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                </ul>
+            </div>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="registration-form-section">
+            <h2 class="header-medium">Register for Events</h2>
+            <form action="https://jsonplaceholder.typicode.com/posts" method="POST">
+                
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+
+                
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" minlength="6" required>
+
+             
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+
+                
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+
+            
+                <label>Event Interests:</label>
+                <input type="checkbox" id="music" name="interests" value="music">
+                <label for="music">Music</label>
+                <input type="checkbox" id="art" name="interests" value="art">
+                <label for="art">Art</label>
+                <input type="checkbox" id="food" name="interests" value="food">
+                <label for="food">Food</label>
+
+              
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="bosnia">Bosnia and Herzegovina</option>
+                    <option value="croatia">Croatia</option>
+                    <option value="serbia">Serbia</option>
+                    <option value="other">Other</option>
+                </select>
+
+      
+                <label for="comments">Comments or Special Requests:</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+
+        
+                <label for="profilepic">Upload Profile Picture:</label>
+                <input type="file">
+
+     
+                <button type="submit">Submit Registration</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>IBU 061 - Foundations of Web Development @Alen Ikanovic</p>
+        <p>Follow us on: 
+            <a href="https://facebook.com" target="_blank">Facebook</a> |  
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
+        </p>
+    </footer>
+    <script>
+        // JavaScript for burger menu toggle
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

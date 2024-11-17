@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarajevo City Events - Tickets</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="home.html" class="logo">Sarajevo Events</a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="tickets.html">Tickets</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                </ul>
+            </div>
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="ticketssec">
+            <h1>Available Tickets</h1>
+            <p>Find tickets to your favorite events in Sarajevo. Book now and secure your spot!</p>
+        </section>
+
+        <section>
+            <h2>Upcoming Events Tickets</h2><br>
+            <div>
+                <div class="tickets-card">
+                    <img src="music festival.png" alt="Music Festival" class="medium-image">
+                    <div>
+                        <h3>Music Festival 2024</h3>
+                        <p>Price: $50</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div><br>
+              
+                <div class="tickets-card">
+                    <img src="art.png" alt="Art Exhibition" class="small-image">
+                    <div>
+                        <h3>Art Exhibition</h3>
+                        <p>Price: $30</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div><br>
+            
+                <div class="tickets-card">
+                    <img src="food.png" alt="Food Fair" class="large-image">
+                    <div>
+                        <h3>Food Fair 2024</h3>
+                        <p>Price: $20</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div><br>
+             
+                <div class="tickets-card">
+                    <img src="book.png" alt="Book Fair" class="medium-image">
+                    <div>
+                        <h3>Book Fair 2024</h3>
+                        <p>Price: $15</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div><br>
+                
+                <div class="tickets-card">
+                    <img src="theater.png" alt="Theater Show" class="small-image">
+                    <div>
+                        <h3>Theater Show</h3>
+                        <p>Price: $40</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div><br>
+           
+                <div class="tickets-card">
+                    <img src="sports.png" alt="Sports Event" class="large-image">
+                    <div>
+                        <h3>Sports Event</h3>
+                        <p>Price: $35</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>IBU 061 - Foundations of Web Development @Alen Ikanovic</p>
+        <p>Follow us on: 
+            <a href="https://facebook.com" target="_blank">Facebook</a> |  
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
+        </p>
+    </footer>
+    <script>
+        // JavaScript for burger menu toggle
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
