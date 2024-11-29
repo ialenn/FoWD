@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarajevo City Events - Main Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="home.html" class="logo">Sarajevo Events</a>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="tickets.html">Tickets</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                </ul>
+                
+                <div class="burger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- dobrodosli -->
+        <section>
+            <h1 class="header-large">Welcome to Sarajevo City Events</h1>
+            <p>
+                Hey there! You’ve landed at the go-to spot for everything happening in Sarajevo. Whether you’re living here or just visiting, 
+        we’ve got a ton of cool stuff to check out. Think epic music festivals, amazing art shows, food fairs to satisfy every craving, 
+        and sports events to get your adrenaline pumping. Our goal is simple: to keep you in the loop with the best events around 
+        and make it super easy for you to find, register, and enjoy them. So jump in and see what’s happening—you won’t want to miss it!
+            </p>
+            <br>
+            <br>
+            <h3>Why Choose Us?</h3>
+            <br>
+            <ul class="benefits-list">
+                <li>Curated list of top events happening in Sarajevo</li>
+                <li>Easy registration and ticket purchasing process</li>
+                <li>Exclusive offers and early-bird discounts</li>
+                <li>Regular updates on new and upcoming events</li>
+                <li>Responsive and user-friendly platform</li>
+            </ul>
+        </section>
+        
+    
+        <!-- plan your next adventure -->
+        <section class="header-section">
+            <h2 class="header-medium">Plan Your Next Adventure</h2>
+            <br>
+            <p1>Check out our Events page for a full list of what's happening around the city. 
+                Browse by date, category, or popularity, and never miss out on the best experiences Sarajevo has to offer.
+            </p>
+            <br>
+            <a href="tickets.html" class="btn-fancy">Get Your Tickets</a>
+        </section>
+        
+        <!-- register tickets grab -->
+        <section class="header-section">
+            <h3 class="header-small">Register & Grab Your Tickets Easily</h3>
+            <p2>Register for events effortlessly with our streamlined Registration page. Looking to attend? 
+                Head over to the Tickets page to secure your spot and add tickets to your cart with just a few clicks.</p>
+        </section>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- 3 slike -->
+        <section class="featured-events">
+            <h2 class="header-medium">Featured Events</h2>
+            <div class="event-cards-container">
+                
+                <div class="event-card">
+                    <img src="music festival.png" alt="Music Festival" class="event-image">
+                    <div>
+                        <h3 class="header-small">Music Festival 2024</h3>
+                        <p3>Experience the energy of Sarajevo’s top music artists and bands.</p>
+                        <br><button class="btn">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="art.png" alt="Art Exhibition" class="event-image">
+                    <div>
+                        <h3 class="header-small">Art Exhibition</h3>
+                        <p>Explore the best of Sarajevo’s contemporary and traditional art scene.</p>
+                        <br><button class="btn">Learn More</button>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="food.png" alt="Food Fair" class="event-image">
+                    <div>
+                        <h3 class="header-small">Food Fair 2024</h3>
+                        <p>Indulge in delicious local and international cuisines at our food fair.</p>
+                        <br><button class="btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal -->
+        <button id="openModal">Open Modal</button>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h22>Modal Title</h2>
+                <p>This is a simple modal dialog box.</p>
+            </div>
+        </div>
+
+    </main>
+    <section>
+        <h2 class="header-medium">Audi listen</h2>
+        <audio controls> <!-- controls is for play, pause, volume -->
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"> 
+        </audio>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>IBU 061 - Foundations of Web Development @Alen Ikanovic</p>
+        <p>Follow us on: 
+            <a href="https://facebook.com" target="_blank">Facebook</a> |  
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
+        </p>
+    </footer>
+    
+
+    <!-- Script Modal -->
+    <script>
+        const modal = document.getElementById('modal');
+        const openModal = document.getElementById('openModal');
+        const closeModal = document.querySelector('.close');
+
+        openModal.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+    <script>
+        // JavaScript for burger menu toggle
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

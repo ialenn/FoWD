@@ -1,37 +1,342 @@
-body {
-    font-family: Arial, sans-serif;
+/* This is for CSS reset to for consistent styling across different browsers */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+body {
+    font-family: Arial, sans-serif;  
+}
+.navbar {
+    background-color: #333;
+    color: white;
+}
+.logo {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+.nav-links {
+    list-style: none;
     display: flex;
+    gap: 15px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+.nav-links a:hover {
+    background-color: #555;
+    border-radius: 5px;
 }
 
-.sidebar {
-    width: 250px;
-    background-color: rgb(212, 212, 212);
-    padding: 15px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed; 
-    height: 100%; 
-    overflow-y: auto; 
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .event-cards-container {
+        flex-direction: column;
+        gap: 30px;
+        margin: 0 auto;
+    }
+    .registration-form-section {
+        padding: 15px;
+        max-width: 90%;
+    }
+}
+/* Navbar */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; 
+        flex-direction: column;
+        text-align: center;
+        background-color: #333;
+        padding: 10px;
+        width: 100%;
+    }
+    .navbar .nav-links.active {
+        display: flex;
+    }
+    .event-cards-container {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .event-card, .tickets-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .registration-form-section, .ticketssec, .eventssec {
+        padding: 10px;
+    }
+    main {
+        padding: 20px;
+    }
 }
 
-.sidebar h2 {
-    font-size: 1.5em;
+@media (max-width: 480px) {
+    .header-large, .header-medium {
+        font-size: 2rem;
+    }
+    .header-small {
+        font-size: 1.2rem;
+    }
+    .btn-fancy {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    audio, video {
+        max-width: 100%;
+    }
+}
+
+
+/* Main Section */
+main {
+    background: url('What-to-see-in-Sarajevo.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 50px;
+    min-height: 150vh;
+    text-align: center;
+}
+/* Header Styling */
+.header-large {
+    font-size: 3rem; 
+    font-weight: 700; 
+    margin-bottom: 20px;
+    color: #2c3e50; 
+    text-align: center; 
+}
+.header-medium {
+    font-size: 2rem;  
+    font-weight: 600; 
+    margin-bottom: 15px;
+}
+.header-small {
+    font-size: 1.5rem;  
+    font-weight: 400; 
     margin-bottom: 10px;
 }
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+/* Spacing Between Headings */
+.header-section {
+    margin-top: 100px;
 }
 
-.sidebar ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid #ccc; 
-}
 
-.main-content {
-    margin-left: 270px; 
+/* Container for Event Cards */
+.event-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* karte u redu na events page*/
+    gap: 20px; /* Space between cards */
+    justify-content: center; 
+}
+/* Featured Events Section */
+.featured-events {
     padding: 20px;
+    background-color: #c9c4ac;
+    border-radius: 8px;
+}
+.event-card {
+    background-color: rgb(202, 199, 188);
+    border: 5px solid #694503;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 0 auto; /* Centriranje boxa */
+    text-align: left;
+    transition: transform 0.3s;
+    
+}
+.event-card:hover {
+    transform: scale(1.05); /*iskakanje kada se hoveruje*/
+}
+.event-image {
+    width: 290px;
+    height: 150px; /* Adjust dimensions as needed */
+    object-fit: cover; /* Ensures images maintain aspect ratio and are scaled within their container */
+}
+
+
+/* why chosose us */
+.benefits-list {
+    margin-top: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+.benefits-list li {
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #ddcdcd;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+.benefits-list li:hover {
+    background-color: #bfdcf3;
+}
+
+
+/* FancyButton  */
+.btn-fancy {
+    padding: 12px 25px;
+    background-color: #ff5733; 
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-fancy:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Footer */
+footer {
+    background-color: #333; 
+    color: white; 
+    padding: 4px;
+    text-align: center; 
+    font-size: 0.7rem; 
+    border-top: 5px solid #694503;
+}
+footer a {
+    color: #ff5733; 
+    text-decoration: none;
+    font-weight: bold;
+}
+footer a:hover {
+    color: #e04d2d; 
+    text-decoration: underline;
+}
+
+
+/* EVENTS PAGE */
+.three-per-row {
+    margin: 100px;
+    display: inline-block;   
+}
+
+
+/* Registration Form Styling */
+.registration-form-section {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #e2bdbd;
+    border-radius: 8px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+/*this is for all input fields in the form*/
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select,
+form textarea,
+form input[type="file"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: 5px;
+}
+form button[type="submit"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff5733;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+form button[type="submit"]:hover {
+    background-color: #e04d2d;
+}
+
+/* Image Sizing classes for tickets Page */
+.small-image {
+    width: 150px;
+    height: auto;
+}
+.medium-image {
+    width: 250px;
+    height: auto;
+}
+.large-image {
+    width: 350px;
+    height: auto;
+}
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    color: #333; 
+}
+.h22{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.p11{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boja td{
+    background-color: #e2bdbd;
+    color:red;
+}
+
+/* Burger Menu Styling */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Show burger menu on smaller screens */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
 }
