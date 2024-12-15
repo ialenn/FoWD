@@ -353,3 +353,29 @@ form button[type="submit"]:hover {
 .toggle-btn:hover {
     background-color: #555;
 }
+
+
+/* Questins faq sttyling */
+.faq-item {
+    border: 1px solid #ccc;
+}
+
+.faq-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.faq-btn:hover {
+    background-color: #555;
+}
+
+.faq-content {
+    display: none;
+    padding: 10px 15px;
+    background-color: #d36262;
+    border-top: 1px solid #fcb6b6;
+}

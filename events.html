@@ -39,7 +39,7 @@
             <div class="event-cards-container">
                 <div class="event-card three-per-row">
                     <img src="music festival.png" class="event-image">
-                    <div class="event-details">
+                    <div>
                         <h3 class="header-small">Music Festival 2024</h3>
                         <p>Join us for an unforgettable night of music with top artists and bands.</p>
                         <button class="toggle-btn">View More</button>
@@ -53,11 +53,11 @@
         
                 <div class="event-card three-per-row">
                     <img src="art.png" class="event-image">
-                    <div class="event-details">
+                    <div>
                         <h3 class="header-small">Art Exhibition</h3>
                         <p>Explore stunning art pieces from local and international artists.</p>
                         <button class="toggle-btn">View More</button>
-                        <div>
+                        <div class="seemore">
                             <p>Date:2024</p>
                             <p>Location: Sarajevo Art Center</p>
                             <p>Price: $30</p>
@@ -67,7 +67,7 @@
         
                 <div class="event-card three-per-row">
                     <img src="food.png" class="event-image">
-                    <div class="event-details">
+                    <div>
                         <h3 class="header-small">Food Fair 2024</h3>
                         <p>Taste delicious cuisines from around the world.</p>
                         <button class="toggle-btn">View More</button>
@@ -81,7 +81,7 @@
         
                 <div class="event-card three-per-row">
                     <img src="book.png" class="event-image">
-                    <div class="event-details">
+                    <div>
                         <h3 class="header-small">Book Fair 2024</h3>
                         <p>Meet your favorite authors and discover new books at the annual book fair.</p>
                         <button class="toggle-btn">View More</button>
@@ -95,7 +95,7 @@
         
                 <div class="event-card three-per-row">
                     <img src="theater.png" class="event-image">
-                    <div class="event-details">
+                    <div>
                         <h3 class="header-small">Theater Show</h3>
                         <p>Enjoy a captivating performance at the city's renowned theater.</p>
                         <button class="toggle-btn">View More</button>
@@ -109,7 +109,7 @@
         
                 <div class="event-card three-per-row">
                     <img src="sports.png" class="event-image">
-                    <div class="event-details">
+                    <div>
                         <h3 class="header-small">Sports Event</h3>
                         <p>Cheer on your favorite teams and athletes in an exciting sports event.</p>
                         <button class="toggle-btn">View More</button>
@@ -122,7 +122,46 @@
                 </div>
             </div>
         </section>
+
+
+
         
+        <section>
+            <h2 class="header-medium">Frequently Asked Questions</h2>
+            <div>
+                  
+                <div class="faq-item">
+                    <button class="faq-btn">What is Sarajevo City Events?</button>
+                    <div class="faq-content">
+                        <p>Sarajevo City Events is a platform showcasing the top events happening in Sarajevo</p>
+                    </div>
+                </div>               
+                <div class="faq-item">
+                    <button class="faq-btn">How can I purchase tickets?</button>
+                    <div class="faq-content">
+                        <p>You can purchase tickets by visiting the <a href="tickets.html">Tickets</a> page.</p>
+                    </div>
+                </div>            
+                <div class="faq-item">
+                    <button class="faq-btn">Is registration required?</button>
+                    <div class="faq-content">
+                        <p>Yes, registration is required for some events. Visit <a href="registration.html">Registration</a> page to sign up.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn">How can I stay updated on events?</button>
+                    <div class="faq-content">
+                        <p>Stay updated by checking our Events page regularly.</p>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+
+        <br>
+        <br>
+        <br>
+
 
         <!-- Event Table -->
 <section class="event-table-section bootstrap-table">
@@ -172,6 +211,7 @@
 </section>
 
 
+
     </main>
 
     <footer>
@@ -182,6 +222,7 @@
             <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
         </p>
     </footer>
+
     <script>
         // JavaScript for burger menu toggle
         const burger = document.querySelector('.burger');
@@ -191,11 +232,14 @@
             navLinks.classList.toggle('active');
         });
     </script>
+
     <script>
         const toggleButtons = document.querySelectorAll('.toggle-btn');
     
         toggleButtons.forEach(button => {
+
             button.addEventListener('click', () => {
+
                 const content = button.nextElementSibling;
                 if (content.style.display === 'block') {
                     content.style.display = 'none';
@@ -207,7 +251,23 @@
             });
         });
     </script>
-    
-    
+
+<script>
+    const faqButtons = document.querySelectorAll('.faq-btn');
+
+    faqButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            
+            let content = button.nextElementSibling;
+            if (content.style.display === 'block') {
+                content.style.display = 'none'; 
+
+            } else {
+                content.style.display = 'block';
+            }
+        });
+    });
+</script>
+ 
 </body>
 </html>
