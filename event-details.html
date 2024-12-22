@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Event Details</h1>
+    </header>
+    <main id="event-details"></main>
+    <script>
+        // Load event details from localStorage
+        const eventDetails = JSON.parse(localStorage.getItem("selectedEvent"));
+        const eventDetailsContainer = document.getElementById("event-details");
+
+    if (eventDetails) {
+    
+        eventDetailsContainer.innerHTML = "";
+
+        // Create an image element
+        const imageElement = document.createElement("img");
+        imageElement.src = eventDetails.image;
+        imageElement.alt = eventDetails.title;
+        imageElement.style.width = "100%";
+        imageElement.style.maxWidth = "600px";
+
+        // Create a title element
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = eventDetails.title;
+
+        // Create a paragraph for the date
+        const dateElement = document.createElement("p");
+        dateElement.innerHTML = `<strong>Date:</strong> ${eventDetails.date}`;
+
+        // Create a paragraph for the location
+        const locationElement = document.createElement("p");
+        locationElement.innerHTML = `<strong>Location:</strong> ${eventDetails.location}`;
+
+        // Create a paragraph for the price
+        const priceElement = document.createElement("p");
+        priceElement.innerHTML = `<strong>Price:</strong> ${eventDetails.price}`;
+
+        // Create a paragraph for the description
+        const descriptionElement = document.createElement("p");
+        descriptionElement.textContent = eventDetails.description;
+
+        // Append all elements to the container
+        eventDetailsContainer.appendChild(imageElement);
+        eventDetailsContainer.appendChild(titleElement);
+        eventDetailsContainer.appendChild(dateElement);
+        eventDetailsContainer.appendChild(locationElement);
+        eventDetailsContainer.appendChild(priceElement);
+        eventDetailsContainer.appendChild(descriptionElement);
+    }
+    else {
+                eventDetailsContainer.innerHTML = "<p>No event details available.</p>";
+            }
+    </script>
+</body>
+</html>

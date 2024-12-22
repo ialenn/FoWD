@@ -6,9 +6,9 @@
     <title>Sarajevo City Events - Events Page</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 <body>
+
     <header>
         <nav class="navbar">
             <div class="container">
@@ -24,11 +24,13 @@
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
+                <button id="themeSwitcher" class="btn-fancy">Switch Theme</button>
             </div>
         </nav>
     </header>
 
     <main>
+
         <section class="eventssec">
             <h1 class="header-large">Explore Our Events</h1>
             <p>Discover what's happening in Sarajevo, from music festivals and art exhibitions to food fairs and sporting events. Find your next adventure here!</p>
@@ -37,95 +39,77 @@
         <section>
             <h2 class="header-medium">Upcoming Events</h2>
             <div class="event-cards-container">
+
+                <!-- Music Festival -->
                 <div class="event-card three-per-row">
-                    <img src="music festival.png" class="event-image">
+                    <img src="music festival.png" class="event-image thumbnail">
                     <div>
                         <h3 class="header-small">Music Festival 2024</h3>
                         <p>Join us for an unforgettable night of music with top artists and bands.</p>
-                        <button class="toggle-btn">View More</button>
-                        <div>
-                            <p>Date:June 15, 2024</p>
-                            <p>Location: Sarajevo City Park</p>
-                            <p>Price: $50</p>
-                        </div>
+                        <button class="view-details-btn">View Details</button>
                     </div>
                 </div>
-        
+            
+                <!-- Art Exhibition -->
                 <div class="event-card three-per-row">
-                    <img src="art.png" class="event-image">
+                    <img src="art.png" class="event-image thumbnail">
                     <div>
                         <h3 class="header-small">Art Exhibition</h3>
                         <p>Explore stunning art pieces from local and international artists.</p>
-                        <button class="toggle-btn">View More</button>
-                        <div class="seemore">
-                            <p>Date:2024</p>
-                            <p>Location: Sarajevo Art Center</p>
-                            <p>Price: $30</p>
-                        </div>
+                        <button class="view-details-btn">View Details</button>
                     </div>
                 </div>
-        
+            
+                <!-- Food Fair -->
                 <div class="event-card three-per-row">
-                    <img src="food.png" class="event-image">
+                    <img src="food.png" class="event-image thumbnail">
                     <div>
                         <h3 class="header-small">Food Fair 2024</h3>
                         <p>Taste delicious cuisines from around the world.</p>
-                        <button class="toggle-btn">View More</button>
-                        <div>
-                            <p>Date: 2024</p>
-                            <p>Location:Square</p>
-                            <p>Price: $20</p>
-                        </div>
+                        <button class="view-details-btn">View Details</button>
                     </div>
                 </div>
-        
+            
+                <!-- Book Fair -->
                 <div class="event-card three-per-row">
-                    <img src="book.png" class="event-image">
+                    <img src="book.png" class="event-image thumbnail">
                     <div>
                         <h3 class="header-small">Book Fair 2024</h3>
                         <p>Meet your favorite authors and discover new books at the annual book fair.</p>
-                        <button class="toggle-btn">View More</button>
-                        <div>
-                            <p>Date: 24</p>
-                            <p>Location: Library</p>
-                            <p>Price: $15</p>
-                        </div>
+                        <button class="view-details-btn">View Details</button>
                     </div>
                 </div>
-        
+            
+                <!-- Theater Show -->
                 <div class="event-card three-per-row">
-                    <img src="theater.png" class="event-image">
+                    <img src="theater.png" class="event-image thumbnail">
                     <div>
                         <h3 class="header-small">Theater Show</h3>
                         <p>Enjoy a captivating performance at the city's renowned theater.</p>
-                        <button class="toggle-btn">View More</button>
-                        <div >
-                            <p>Date: 2024</p>
-                            <p>Location: City Theater</p>
-                            <p>Price: $40</p>
-                        </div>
+                        <button class="view-details-btn">View Details</button>
                     </div>
                 </div>
-        
+            
+                <!-- Sports Event -->
                 <div class="event-card three-per-row">
-                    <img src="sports.png" class="event-image">
+                    <img src="sports.png"class="event-image thumbnail">
                     <div>
                         <h3 class="header-small">Sports Event</h3>
                         <p>Cheer on your favorite teams and athletes in an exciting sports event.</p>
-                        <button class="toggle-btn">View More</button>
-                        <div>
-                            <p>Date: 024</p>
-                            <p>Location: Sports Arena</p>
-                            <p>Price: $35</p>
-                        </div>
+                        <button class="view-details-btn">View Details</button>
                     </div>
-                </div>
+                </div>       
             </div>
         </section>
-
-
-
         
+        <!-- Modal -->
+        <div id="imageModal" class="modal">
+            <div class="image-modal-content"> 
+                <span class="close">&times;</span>
+                <img id="modalImage" style="width: 100%; height: auto;">
+            </div>
+        </div>
+
         <section>
             <h2 class="header-medium">Frequently Asked Questions</h2>
             <div>
@@ -164,7 +148,7 @@
 
 
         <!-- Event Table -->
-<section class="event-table-section bootstrap-table">
+    <section>
     <h2 class="header-medium">Event Details Table</h2>
     <table class="event-table table table-striped table-bordered table-hover">
         <thead class="thead-dark">
@@ -209,10 +193,7 @@
         </tbody>
     </table>
 </section>
-
-
-
-    </main>
+</main>
 
     <footer>
         <p>IBU 061 - Foundations of Web Development @Alen Ikanovic</p>
@@ -222,6 +203,72 @@
             <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
         </p>
     </footer>
+
+    <script>
+        // JavaScript to handle "View Details" redirection
+    const events = [
+        {
+            title: "Music Festival 2024",
+            date: "June 15, 2024",
+            location: "Sarajevo City Park",
+            price: "$50",
+            description: "Join us for an unforgettable night of music with top artists and bands.",
+            image: "music festival.png",
+        },
+        {
+            title: "Art Exhibition",
+            date: "July 20, 2024",
+            location: "Sarajevo Art Center",
+            price: "$30",
+            description: "Explore stunning art pieces from local and international artists.",
+            image: "art.png",
+        },
+        {
+            title: "Food Fair 2024",
+            date: "August 10, 2024",
+            location: "Main Square",
+            price: "$20",
+            description: "Taste delicious cuisines from around the world.",
+            image: "food.png",
+        },
+        {
+            title: "Book Fair 2024",
+            date: "September 5, 2024",
+            location: "Library Hall",
+            price: "$15",
+            description: "Meet your favorite authors and discover new books at the annual book fair.",
+            image: "book.png",
+        },
+        {
+            title: "Theater Show",
+            date: "October 12, 2024",
+            location: "City Theater",
+            price: "$40",
+            description: "Enjoy a captivating performance at the city's renowned theater.",
+            image: "theater.png",
+        },
+        {
+            title: "Sports Event",
+            date: "November 20, 2024",
+            location: "Sports Arena",
+            price: "$35",
+            description: "Cheer on your favorite teams and athletes in an exciting sports event.",
+            image: "sports.png",
+        },
+    ];
+
+    // Add event listeners to the "View Details" buttons
+    const buttons = document.querySelectorAll(".view-details-btn");
+
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            const event = events[index]; //this will get the event object from the events array based on the index of the button that was clicked
+            localStorage.setItem("selectedEvent", JSON.stringify(event)); //this will store the selected event in localStorage. stringify method is used to convert the object to a string
+            window.location.href = "event-details.html"; 
+        });
+    });
+
+    </script>
 
     <script>
         // JavaScript for burger menu toggle
@@ -234,40 +281,70 @@
     </script>
 
     <script>
-        const toggleButtons = document.querySelectorAll('.toggle-btn');
-    
-        toggleButtons.forEach(button => {
+        // JavaScript for FAQ accordion
+        const faqButtons = document.querySelectorAll('.faq-btn');
 
-            button.addEventListener('click', () => {
-
-                const content = button.nextElementSibling;
+        faqButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                
+                let content = button.nextElementSibling;
                 if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                    button.textContent = 'View More';
+                    content.style.display = 'none'; 
+
                 } else {
                     content.style.display = 'block';
-                    button.textContent = 'View Less';
                 }
             });
         });
     </script>
 
-<script>
-    const faqButtons = document.querySelectorAll('.faq-btn');
+    <script>
+        // JavaScript for modal image gallery 
+        const thumbnails = document.querySelectorAll('.thumbnail'); // querySelectorAll returns a NodeList of elements. nodelist is an array-like object which means we can use forEach method on it because it is not an array.
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.querySelector('.close');
 
-    faqButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            
-            let content = button.nextElementSibling;
-            if (content.style.display === 'block') {
-                content.style.display = 'none'; 
-
-            } else {
-                content.style.display = 'block';
-            }
+        // Add click event listeners to thumbnails which will open the modal and display the image and also set the src of the modal image to the src of the thumbnail that was clicked
+        thumbnails.forEach((thumbnail) => {
+            thumbnail.addEventListener('click', () => {
+                modal.style.display = 'block'; // Show modal
+                modalImage.src = thumbnail.src; 
+            });
         });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none'; 
+        });
+
+    </script>
+
+    <script>
+    // Theme Switcher
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const body = document.body;
+
+    // Check if a theme is saved in localStorage.
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.className = savedTheme; // Apply saved theme to the body. className property is used to get or set the class of an element. 
+        themeSwitcher.textContent = savedTheme === 'dark-theme' ? 'Switch to Light' : 'Switch to Dark'; // this will change the text of the button based on the saved theme. "?" conditional operator.
+    }
+
+    // Add event listener to the button
+    themeSwitcher.addEventListener('click', function () {
+        if (body.className === 'dark-theme') {
+            body.className = 'light-theme'; // Switch to light theme
+            themeSwitcher.textContent = 'Switch to Dark';
+            localStorage.setItem('theme', 'light-theme'); // Save theme in localStorage
+        } else {
+            body.className = 'dark-theme'; // Switch to dark theme
+            themeSwitcher.textContent = 'Switch to Light';
+            localStorage.setItem('theme', 'dark-theme'); // Save theme in localStorage
+        }
     });
-</script>
- 
+
+    </script>
+
 </body>
 </html>
