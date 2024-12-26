@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
+
     <header>
         <nav class="navbar">
             <div class="container">
@@ -24,12 +26,12 @@
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
+                <button id="themeSwitcher" class="btn-fancy">Switch Theme</button>
             </div>
         </nav>
     </header>
 
     <main>
-        
         <!-- dobrodosli -->
         <section>
             <h1 class="header-large">Welcome to Sarajevo City Events</h1>
@@ -43,16 +45,20 @@
             <br>
             <h3>Why Choose Us?</h3>
             <br>
-            <ul class="benefits-list">
-                <li>Curated list of top events happening in Sarajevo</li>
-                <li>Easy registration and ticket purchasing process</li>
-                <li>Exclusive offers and early-bird discounts</li>
-                <li>Regular updates on new and upcoming events</li>
-                <li>Responsive and user-friendly platform</li>
-            </ul>
+            <section>
+                <h3>Why Choose Us?</h3>
+                <ul class="benefits-list" id="benefits-list">
+                    <li>Curated list of top events happening in Sarajevo</li>
+                    <li>Easy registration and ticket purchasing process</li>
+                    <li>Exclusive offers and early-bird discounts</li>
+                    <li>Regular updates on new and upcoming events</li>
+                    <li>Responsive and user-friendly platform</li>
+                </ul>
+                <button id="add-benefit">Add New Benefit</button>
+            </section>
+            
         </section>
-        
-    
+
         <!-- plan your next adventure -->
         <section class="header-section">
             <h2 class="header-medium">Plan Your Next Adventure</h2>
@@ -122,6 +128,7 @@
         </div>
 
     </main>
+
     <section>
         <h2 class="header-medium">Audi listen</h2>
         <audio controls> <!-- controls is for play, pause, volume -->
@@ -139,9 +146,8 @@
             <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
         </p>
     </footer>
-    
 
-    <!-- Script Modal -->
+    <!-- Script Modal  -->
     <script>
         const modal = document.getElementById('modal');
         const openModal = document.getElementById('openModal');
@@ -161,6 +167,7 @@
             }
         });
     </script>
+
     <script>
         // JavaScript for burger menu toggle
         const burger = document.querySelector('.burger');
@@ -169,6 +176,88 @@
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+    </script>
+
+    <script>
+    // Theme Switcher
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const body = document.body;
+    
+    // Check if a theme is saved in localStorage.
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.className = savedTheme; // Apply saved theme
+        themeSwitcher.textContent = savedTheme === 'dark-theme' ? 'Switch to Light' : 'Switch to Dark'; // this will change the text of the button based on the saved theme. ? is a ternary operator. If savedTheme is dark-theme, then set the text to 'Switch to Light', otherwise set it to 'Switch to Dark'.
+    }
+    
+    // Add event listener to the button
+    themeSwitcher.addEventListener('click', function () {
+        if (body.className === 'dark-theme') {
+            body.className = 'light-theme'; // Switch to light theme
+            themeSwitcher.textContent = 'Switch to Dark';
+            localStorage.setItem('theme', 'light-theme'); // Save theme in localStorage
+        } else {
+            body.className = 'dark-theme'; // Switch to dark theme
+            themeSwitcher.textContent = 'Switch to Light';
+            localStorage.setItem('theme', 'dark-theme'); // Save theme in localStorage
+        }
+    });
+    
+    </script>
+
+    <script>
+        // Select the benefits list
+        const benefitsList = document.getElementById('benefits-list');
+        const addBenefitButton = document.getElementById('add-benefit');
+
+        // Function to create Edit and Delete buttons for a list item
+        function addEditDeleteButtons(li) {
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.className = 'edit-btn';
+            li.appendChild(editButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = 'delete-btn';
+            li.appendChild(deleteButton);
+
+            // Edit functionality
+            editButton.addEventListener('click', () => {
+                const currentText = li.firstChild.textContent.trim(); // Get the current text of the benefit 
+                const newText = prompt('Edit benefit:', currentText);
+                if (newText !== null && newText.trim() !== '') {
+                    li.firstChild.textContent = newText + ' ';
+                    showToast('Benefit edited successfully!', 'success');
+                }
+            });
+
+            // Delete functionality
+            deleteButton.addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete this benefit?')) {
+                    li.remove();
+                    showToast('Benefit deleted successfully!', 'success');
+                }
+            });
+        }
+
+        // Add Edit/Delete buttons to existing list items
+        Array.from(benefitsList.children).forEach((li) => {
+            addEditDeleteButtons(li);
+        });
+
+        // Add a new benefit
+        addBenefitButton.addEventListener('click', () => {
+            const newBenefit = prompt('Enter a new benefit:');
+            if (newBenefit && newBenefit.trim() !== '') {
+                const newLi = document.createElement('li');
+                newLi.textContent = newBenefit + ' ';
+                addEditDeleteButtons(newLi);
+                benefitsList.appendChild(newLi);
+                showToast('New benefit added successfully!', 'success');
+            }
+        });
+
     </script>
 
 </body>

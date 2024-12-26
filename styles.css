@@ -5,10 +5,39 @@
     box-sizing: border-box;
 }
 
-/* Navbar */
 body {
-    font-family: Arial, sans-serif;  
+    font-family: Arial, sans-serif;
 }
+/* Dark Theme */
+.dark-theme .navbar {
+    background-color: #222222;
+    color: #58e2b4;
+}
+/* Light Theme */
+.light-theme .navbar {
+    background-color: #82e4f1;
+    color: #333333;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #555;
+}
+ /* Navbar */
 .navbar {
     background-color: #333;
     color: white;
@@ -182,10 +211,9 @@ main {
 .btn-fancy {
     padding: 12px 25px;
     background-color: #ff5733; 
-    color: white;
     border-radius: 25px;
     font-weight: bold;
-    transition: all 0.3s ease;
+    
 }
 .btn-fancy:hover {
     transform: translateY(-2px);
@@ -339,4 +367,93 @@ form button[type="submit"]:hover {
     .nav-links li {
         margin: 10px 0;
     }
+}
+
+.toggle-btn {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.toggle-btn:hover {
+    background-color: #555;
+}
+
+
+/* Questins faq sttyling */
+.faq-item {
+    border: 1px solid #ccc;
+}
+
+.faq-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.faq-btn:hover {
+    background-color: #555;
+}
+
+.faq-content {
+    display: none;
+    padding: 10px 15px;
+    background-color: #d36262;
+    border-top: 1px solid #fcb6b6;
+}
+
+
+/* Toast Notifications */
+#toast-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.toast {
+    display: none; /* Hide toast */
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.toast.show {
+    display: block; /* Show toast */
+}
+
+.toast.success {
+    background-color: #28a745; /* Green */
+}
+
+.thumbnail {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image-modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    max-width: 700px; 
+    background: white;
+    border-radius: 8px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
 }

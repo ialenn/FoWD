@@ -18,47 +18,42 @@
                     <li><a href="tickets.html">Tickets</a></li>
                     <li><a href="registration.html">Registration</a></li>
                 </ul>
-            </div>
+            
             <div class="burger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
+    
+            <button id="themeSwitcher" class="btn-fancy">Switch Theme</button>
         </nav>
     </header>
 
     <main>
         <section class="registration-form-section">
             <h2 class="header-medium">Register for Events</h2>
-            <form action="https://jsonplaceholder.typicode.com/posts" method="POST">
-                
+            <form id="registration-form">
                 <label for="first-name">First Name:</label>
                 <input type="text" id="first-name" name="first-name" required>
-
-                
+        
                 <label for="last-name">Last Name:</label>
                 <input type="text" id="last-name" name="last-name" required>
-
-                
+        
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-
-                
+        
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" minlength="6" required>
-
-             
+        
                 <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob">
-
-                
+        
                 <label>Gender:</label>
                 <input type="radio" id="male" name="gender" value="male">
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female">
                 <label for="female">Female</label>
-
-            
+        
                 <label>Event Interests:</label>
                 <input type="checkbox" id="music" name="interests" value="music">
                 <label for="music">Music</label>
@@ -66,8 +61,7 @@
                 <label for="art">Art</label>
                 <input type="checkbox" id="food" name="interests" value="food">
                 <label for="food">Food</label>
-
-              
+        
                 <label for="country">Country:</label>
                 <select id="country" name="country">
                     <option value="bosnia">Bosnia and Herzegovina</option>
@@ -75,19 +69,18 @@
                     <option value="serbia">Serbia</option>
                     <option value="other">Other</option>
                 </select>
-
-      
+        
                 <label for="comments">Comments or Special Requests:</label>
                 <textarea id="comments" name="comments" rows="4"></textarea>
-
         
                 <label for="profilepic">Upload Profile Picture:</label>
                 <input type="file">
-
-     
+        
                 <button type="submit">Submit Registration</button>
             </form>
+            <div id="message" class="success-message"></div> 
         </section>
+        
     </main>
 
     <footer>
@@ -98,6 +91,7 @@
             <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
         </p>
     </footer>
+
     <script>
         // JavaScript for burger menu toggle
         const burger = document.querySelector('.burger');
@@ -107,6 +101,64 @@
             navLinks.classList.toggle('active');
         });
     </script>
+
+    <script>
+        const form = document.getElementById('registration-form');
+        const messageDiv = document.getElementById('message');
+
+        // Listen for form submission
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // this prevents the form from submitting normally (refreshing the page)
+
+            // this is where you would send the form data to the server using AJAX 
+            const formData = new FormData(form);
+
+            // Simulate AJAX request. the link simulates a POST request to a server which means it will create a new user when the form is submitted
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: formData,
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        // Show success message
+                        messageDiv.textContent = 'Registration successful!';
+                        messageDiv.style.color = 'green';
+                        form.reset(); // Reset the form
+                    } else {
+                        // Show error message
+                        messageDiv.textContent = 'Registration failed. Please try again.';
+                        messageDiv.style.color = 'red';
+                    }
+                })
+        });
+    </script>
+
+    <script>
+        // Theme Switcher
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const body = document.body;
+        
+        // Check if a theme is saved in localStorage.
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.className = savedTheme; // Apply saved theme
+            themeSwitcher.textContent = savedTheme === 'dark-theme' ? 'Switch to Light' : 'Switch to Dark'; // this will change the text of the button based on the saved theme. ? is a ternary operator. If savedTheme is dark-theme, then set the text to 'Switch to Light', otherwise set it to 'Switch to Dark'.
+        }
+        
+        // Add event listener to the button
+        themeSwitcher.addEventListener('click', function () {
+            if (body.className === 'dark-theme') {
+                body.className = 'light-theme'; // Switch to light theme
+                themeSwitcher.textContent = 'Switch to Dark';
+                localStorage.setItem('theme', 'light-theme'); // Save theme in localStorage
+            } else {
+                body.className = 'dark-theme'; // Switch to dark theme
+                themeSwitcher.textContent = 'Switch to Light';
+                localStorage.setItem('theme', 'dark-theme'); // Save theme in localStorage
+            }
+        });
+        
+        </script>
 
 </body>
 </html>

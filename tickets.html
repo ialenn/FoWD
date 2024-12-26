@@ -18,20 +18,25 @@
                     <li><a href="tickets.html">Tickets</a></li>
                     <li><a href="registration.html">Registration</a></li>
                 </ul>
-            </div>
+            
             <div class="burger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
+            
+            <button id="themeSwitcher" class="btn-fancy">Switch Theme</button>
         </nav>
     </header>
 
     <main>
+
         <section class="ticketssec">
             <h1>Available Tickets</h1>
             <p>Find tickets to your favorite events in Sarajevo. Book now and secure your spot!</p>
         </section>
+
+        <div id="toast-container"></div>
 
         <section>
             <h2>Upcoming Events Tickets</h2><br>
@@ -41,7 +46,8 @@
                     <div>
                         <h3>Music Festival 2024</h3>
                         <p>Price: $50</p>
-                        <button>Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+
                     </div>
                 </div><br>
               
@@ -50,7 +56,8 @@
                     <div>
                         <h3>Art Exhibition</h3>
                         <p>Price: $30</p>
-                        <button>Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+
                     </div>
                 </div><br>
             
@@ -59,7 +66,8 @@
                     <div>
                         <h3>Food Fair 2024</h3>
                         <p>Price: $20</p>
-                        <button>Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+
                     </div>
                 </div><br>
              
@@ -68,7 +76,8 @@
                     <div>
                         <h3>Book Fair 2024</h3>
                         <p>Price: $15</p>
-                        <button>Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+
                     </div>
                 </div><br>
                 
@@ -77,7 +86,8 @@
                     <div>
                         <h3>Theater Show</h3>
                         <p>Price: $40</p>
-                        <button>Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+
                     </div>
                 </div><br>
            
@@ -86,7 +96,8 @@
                     <div>
                         <h3>Sports Event</h3>
                         <p>Price: $35</p>
-                        <button>Add to Cart</button>
+                        <button class="add-to-cart-button">Add to Cart</button>
+
                     </div>
                 </div>
             </div>
@@ -109,6 +120,65 @@
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+    </script>
+
+    <script>
+
+    function showToast(message, type = 'success') {
+        const toastContainer = document.getElementById('toast-container'); //this is the div where we will append the toast message
+        const toast = document.createElement('div'); //this is the div that will contain the toast message
+        toast.className = `toast ${type}`; // `toast ${type}` will add the type of the toast message (success) to the class of the div (toast)
+        toast.innerText = message; // this will set the text of the toast message. message is the parameter of the function
+
+        toastContainer.appendChild(toast); 
+
+        
+        setTimeout(() => {
+            toast.classList.add('show');}, 100);    //classList is a property that returns the class name of an element 
+                                                    //in this case we are adding the class 'show' to the toast message which is the class that will make the toast message visible
+                                                    //because it has the property display: block; in the css file
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                toastContainer.removeChild(toast);
+            }, 500);
+        }, 3000);
+    }
+
+    // Attach click event listeners to all Add to Cart buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            showToast('Ticket added to cart!', 'success');
+        });
+    });
+</script>
+
+<script>
+    // Theme Switcher
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const body = document.body;
+    
+    // Check if a theme is saved in localStorage.
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.className = savedTheme; // Apply saved theme
+        themeSwitcher.textContent = savedTheme === 'dark-theme' ? 'Switch to Light' : 'Switch to Dark'; // this will change the text of the button based on the saved theme. ? is a ternary operator. If savedTheme is dark-theme, then set the text to 'Switch to Light', otherwise set it to 'Switch to Dark'.
+    }
+    
+    // Add event listener to the button
+    themeSwitcher.addEventListener('click', function () {
+        if (body.className === 'dark-theme') {
+            body.className = 'light-theme'; // Switch to light theme
+            themeSwitcher.textContent = 'Switch to Dark';
+            localStorage.setItem('theme', 'light-theme'); // Save theme in localStorage
+        } else {
+            body.className = 'dark-theme'; // Switch to dark theme
+            themeSwitcher.textContent = 'Switch to Light';
+            localStorage.setItem('theme', 'dark-theme'); // Save theme in localStorage
+        }
+    });
+    
     </script>
 
 </body>
