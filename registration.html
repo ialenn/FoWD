@@ -3,34 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarajevo City Events - Registration</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Page Title</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="home.html" class="logo">Sarajevo Events</a>
-                <ul class="nav-links">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="tickets.html">Tickets</a></li>
-                    <li><a href="registration.html">Registration</a></li>
-                </ul>
-            
-            <div class="burger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-    
-            <button id="themeSwitcher" class="btn-fancy">Switch Theme</button>
-        </nav>
-    </header>
-
-    <main>
-        <section class="registration-form-section">
+    <section class="registration-form-section">
             <h2 class="header-medium">Register for Events</h2>
             <form id="registration-form">
                 <label for="first-name">First Name:</label>
@@ -80,85 +56,6 @@
             </form>
             <div id="message" class="success-message"></div> 
         </section>
-        
-    </main>
-
-    <footer>
-        <p>IBU 061 - Foundations of Web Development @Alen Ikanovic</p>
-        <p>Follow us on: 
-            <a href="https://facebook.com" target="_blank">Facebook</a> |  
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="mailto:amela.vatres@stu.ibu.edu.ba" target="_blank">Contact Us: amela.vatres@stu.ibu.edu.ba</a>
-        </p>
-    </footer>
-
-    <script>
-        // JavaScript for burger menu toggle
-        const burger = document.querySelector('.burger');
-        const navLinks = document.querySelector('.nav-links');
-
-        burger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
-
-    <script>
-        const form = document.getElementById('registration-form');
-        const messageDiv = document.getElementById('message');
-
-        // Listen for form submission
-        form.addEventListener('submit', (event) => {
-            event.preventDefault(); // this prevents the form from submitting normally (refreshing the page)
-
-            // this is where you would send the form data to the server using AJAX 
-            const formData = new FormData(form);
-
-            // Simulate AJAX request. the link simulates a POST request to a server which means it will create a new user when the form is submitted
-            fetch('https://jsonplaceholder.typicode.com/posts', {
-                method: 'POST',
-                body: formData,
-            })
-                .then((response) => {
-                    if (response.ok) {
-                        // Show success message
-                        messageDiv.textContent = 'Registration successful!';
-                        messageDiv.style.color = 'green';
-                        form.reset(); // Reset the form
-                    } else {
-                        // Show error message
-                        messageDiv.textContent = 'Registration failed. Please try again.';
-                        messageDiv.style.color = 'red';
-                    }
-                })
-        });
-    </script>
-
-    <script>
-        // Theme Switcher
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        const body = document.body;
-        
-        // Check if a theme is saved in localStorage.
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.className = savedTheme; // Apply saved theme
-            themeSwitcher.textContent = savedTheme === 'dark-theme' ? 'Switch to Light' : 'Switch to Dark'; // this will change the text of the button based on the saved theme. ? is a ternary operator. If savedTheme is dark-theme, then set the text to 'Switch to Light', otherwise set it to 'Switch to Dark'.
-        }
-        
-        // Add event listener to the button
-        themeSwitcher.addEventListener('click', function () {
-            if (body.className === 'dark-theme') {
-                body.className = 'light-theme'; // Switch to light theme
-                themeSwitcher.textContent = 'Switch to Dark';
-                localStorage.setItem('theme', 'light-theme'); // Save theme in localStorage
-            } else {
-                body.className = 'dark-theme'; // Switch to dark theme
-                themeSwitcher.textContent = 'Switch to Light';
-                localStorage.setItem('theme', 'dark-theme'); // Save theme in localStorage
-            }
-        });
-        
-        </script>
 
 </body>
 </html>
